@@ -12,6 +12,7 @@ class Login : public QWidget
 	Q_OBJECT
 public:
 	explicit Login(QWidget *parent = nullptr);
+private:
 	QLabel *userLabel;
 	QLabel *passwordLabel;
 	QLineEdit *userLineEdit;
@@ -19,7 +20,7 @@ public:
 	QPushButton *loginButton;
 	QGridLayout *layout;
 signals:
-
+	void passwordGet(QByteArray);
 public slots:
 private slots:
 	void loginButtonClicked();

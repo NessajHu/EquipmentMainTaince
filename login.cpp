@@ -1,5 +1,5 @@
 #include "login.h"
-#include "QCryptographicHash"
+#include <QCryptographicHash>
 
 Login::Login(QWidget *parent)
 	: QWidget(parent),
@@ -21,8 +21,14 @@ Login::Login(QWidget *parent)
 	layout->addWidget(passwordLineEdit, 1, 1, 1, 2);
 	layout->addWidget(loginButton, 2, 0, 1, 3);
 }
-
+/**
+ * @brief Login::loginButtonClicked
+ * It should be enctypred by md5 + salt
+ * @attention Not Finished
+ */
 void Login::loginButtonClicked()
 {
-
+	QCryptographicHash hash(QCryptographicHash::Md5);
+	hash.addData(passwordLabel->text().toLatin1());
+	emit passwordGet(hash.result());
 }
