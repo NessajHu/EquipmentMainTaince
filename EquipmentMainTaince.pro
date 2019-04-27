@@ -27,11 +27,17 @@ CONFIG += c++17
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    login.cpp
+    login.cpp \
+    toolbar.cpp \
+    tabwidget.cpp \
+    personalinformation.cpp
 
 HEADERS += \
         mainwindow.h \
-    login.h
+    login.h \
+    toolbar.h \
+    tabwidget.h \
+    personalinformation.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
