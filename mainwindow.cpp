@@ -1,16 +1,19 @@
 #include "mainwindow.h"
 #include <QPushButton>
+#include <QDebug>
 MainWindow::MainWindow(QWidget *parent)
-	: QWidget(parent),
-	  tabWidget(new TabWidget<westTabPosition>(this)),
-	  basicInformation(new TabWidget<northTabPosition>(this)),
-	  equipmentInformation(new TabWidget<northTabPosition>(this)),
-	  equipmentMainTaince(new TabWidget<northTabPosition>(this))
+	: QWidget(parent)
 {
-	tabWidget->setGeometry(0, 0, 500, 500);
+	qDebug() <<"here";
+	setMinimumSize(800, 800);
+	tabWidget->setUsesScrollButtons(false);
 	tabWidget->addTab(basicInformation, "Basic Information");
 	tabWidget->addTab(equipmentInformation, "Equipment Information");
 	tabWidget->addTab(equipmentMainTaince, "Equipment MainTaince");
+	basicInformation->addTab(personInformation, "Personal Information");
+	basicInformation->addTab(departmentInformation, "Department Information");
+	layout->addWidget(tabWidget);
+	layout->setMargin(0);
 }
 
 MainWindow::~MainWindow()

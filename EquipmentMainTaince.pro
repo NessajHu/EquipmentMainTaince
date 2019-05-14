@@ -30,16 +30,35 @@ SOURCES += \
     login.cpp \
     toolbar.cpp \
     tabwidget.cpp \
-    personalinformation.cpp
+    personalinformation.cpp \
+    searchwidget.cpp \
+    personalinformationmodify.cpp \
+    showmodifywidget.cpp \
+    department.cpp \
+    departmentinformationmodify.cpp \
+    departmentshow.cpp \
+    departmentinformation.cpp \
+    equipmentpurchase.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
     toolbar.h \
     tabwidget.h \
-    personalinformation.h
+    personalinformation.h \
+    searchwidget.h \
+    personalinformationmodify.h \
+    showmodifywidget.h \
+    department.h \
+    departmentinformationmodify.h \
+    departmentshow.h \
+    departmentinformation.h \
+    equipmentpurchase.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    icon.qrc
