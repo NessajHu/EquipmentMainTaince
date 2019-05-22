@@ -34,9 +34,9 @@ void ShowModifyWidget<LabelType, DataType>::setData(DataType data)
 */
 
 template<>
-void ShowModifyWidget<QLineEdit, QString>::setLabelReadOnly(bool readOnly)
+void ShowModifyWidget<QDateEdit, QDate>::setLabelReadOnly(bool readOnly)
 {
-	modifyLabel->setReadOnly(readOnly);
+	modifyLabel->setEnabled(readOnly);
 }
 
 template<>
@@ -46,14 +46,29 @@ void ShowModifyWidget<QLabel, QPixmap>::setLabelReadOnly([[maybe_unused]]bool re
 }
 
 template<>
-void ShowModifyWidget<QLineEdit, QString>::setData(QString data)
+void ShowModifyWidget<QDateEdit, QDate>::setData(QDate data)
 {
-	modifyLabel->setText(data);
+	modifyLabel->setDate(data);
 }
+
 
 template<>
 void ShowModifyWidget<QLabel, QPixmap>::setData(QPixmap data)
 {
 	modifyLabel->setPixmap(data);
+}
+
+template<>
+template<>
+void ShowModifyWidget<QLabel, QPixmap>::init(QPixmap initValue)
+{
+	modifyLabel->setPixmap(initValue);
+}
+
+template<>
+template<>
+void ShowModifyWidget<QComboBox, QString>::init(QStringList& initValue)
+{
+	modifyLabel->addItems(initValue);
 }
 

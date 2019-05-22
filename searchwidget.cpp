@@ -35,5 +35,16 @@ SearchWidget::SearchWidget(QWidget *parent)
 	table->setItem(1, 2, new QTableWidgetItem("test"));
 	table->setItem(2, 1, new QTableWidgetItem("test"));
 	table->setItem(3, 3, new QTableWidgetItem("test"));
-	QObject::connect(table, &QTableWidget::itemDoubleClicked, [&](QTableWidgetItem *currentItem){emit switchToOther();});
+	QObject::connect(table, &QTableWidget::itemDoubleClicked, [&]([[maybe_unused]]QTableWidgetItem *currentItem){emit itemDoubleClicked(currentItem);});
+}
+
+void SearchWidget::setLabels(QStringList labels)
+{
+	table->setRowCount(labels.size());
+	table->setHorizontalHeaderLabels(labels);
+}
+
+void SearchWidget::setPlaceholderText(QString placeholderText)
+{
+	searchBar->setPlaceholderText(placeholderText);
 }

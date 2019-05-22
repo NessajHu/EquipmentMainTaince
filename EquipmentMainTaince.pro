@@ -8,7 +8,7 @@ QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = EquipmentMainTaince
+TARGET = EquipmentMaintaince
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -38,7 +38,15 @@ SOURCES += \
     departmentinformationmodify.cpp \
     departmentshow.cpp \
     departmentinformation.cpp \
-    equipmentpurchase.cpp
+    equipmentpurchase.cpp \
+    equipmentscrapping.cpp \
+    maintainceplan.cpp \
+    equipmentmaintainceplanmodify.cpp \
+    equipmentmaintainceplanshow.cpp \
+    equipmentmaintainceplantable.cpp \
+    equipmentmaintainceplansearch.cpp \
+    todayplan.cpp \
+    equipmentinformation.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +61,15 @@ HEADERS += \
     departmentinformationmodify.h \
     departmentshow.h \
     departmentinformation.h \
-    equipmentpurchase.h
+    equipmentpurchase.h \
+    equipmentscrapping.h \
+    maintainceplan.h \
+    equipmentmaintainceplanmodify.h \
+    equipmentmaintainceplanshow.h \
+    equipmentmaintainceplantable.h \
+    equipmentmaintainceplansearch.h \
+    todayplan.h \
+    equipmentinformation.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

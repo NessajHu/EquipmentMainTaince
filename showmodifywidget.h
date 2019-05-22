@@ -7,6 +7,9 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QPixmap>
+#include "maintainceplan.h"
+#include <QDateEdit>
+#include <QComboBox>
 
 class Proxy : public QWidget
 {
@@ -23,8 +26,14 @@ class ShowModifyWidget : public Proxy
 public:
 	explicit ShowModifyWidget(QWidget *parent = nullptr, const QString &labelText = QString(""), bool buttonEnabled = true);
 	void setData(DataType data);
-private:
+	void setShowLabelText(QString text);
+	LabelType* getModifyLabel();
+	void setButtonVisible(bool visible);
+	DataType getData();
+	template<typename InitType = DataType>
+	void init(InitType initValue);
 	void setLabelReadOnly([[maybe_unused]]bool readOnly);
+private:
 	QLabel *showLabel;
 	LabelType *modifyLabel;
 	QPushButton *confirmButton;
@@ -43,10 +52,10 @@ ShowModifyWidget<LabelType, DataType>::ShowModifyWidget(QWidget *parent, const Q
 	showLabel->setText(labelText);
 	confirmButton->setEnabled(buttonEnabled);
 	confirmButton->setText("Modify");
-
-	layout->addWidget(showLabel, 0, Qt::AlignBottom);
-	layout->addWidget(modifyLabel, 0, Qt::AlignBottom);
-	layout->addWidget(confirmButton, 0, Qt::AlignBottom);
+	modifyLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+	layout->addWidget(showLabel, 0, Qt::AlignVCenter);
+	layout->addWidget(modifyLabel, 0, Qt::AlignVCenter);
+	layout->addWidget(confirmButton, 0, Qt::AlignVCenter);
 	layout->setSpacing(0);
 	layout->setMargin(0);
 	setLabelReadOnly(!buttonEnabled);
@@ -61,14 +70,55 @@ template<>
 void ShowModifyWidget<QLabel, QPixmap>::confirm();
 */
 
+template<typename LabelType, typename DataType>
+void ShowModifyWidget<LabelType, DataType>::setShowLabelText(QString text)
+{
+	showLabel->setText(text);
+}
+template<typename LabelType, typename DataType>
+void ShowModifyWidget<LabelType, DataType>::setLabelReadOnly(bool readOnly)
+{
+	modifyLabel->setEnabled(readOnly);
+}
+
+template<typename LabelType, typename DataType>
+void ShowModifyWidget<LabelType, DataType>::setData(DataType data)
+{
+	modifyLabel->setText(data);
+}
+
+template<typename LabelType, typename DataType>
+template<typename InitType>
+void ShowModifyWidget<LabelType, DataType>::init(InitType initValue)
+{
+	setText(initValue);
+}
+
 template<>
-void ShowModifyWidget<QLineEdit, QString>::setLabelReadOnly(bool readOnly);
+template<>
+void ShowModifyWidget<QLabel, QPixmap>::init(QPixmap initValue);
+
+template<>
+template<>
+void ShowModifyWidget<QComboBox, QString>::init(QStringList& initValue);
+
+template<typename LabelType, typename DataType>
+LabelType* ShowModifyWidget<LabelType, DataType>::getModifyLabel()
+{
+	return modifyLabel;
+}
+
+template<typename LabelType, typename DataType>
+void ShowModifyWidget<LabelType, DataType>::setButtonVisible(bool visible)
+{
+	confirmButton->setVisible(visible);
+}
+
+template<>
+void ShowModifyWidget<QDateEdit, QDate>::setLabelReadOnly(bool readOnly);
 
 template<>
 void ShowModifyWidget<QLabel, QPixmap>::setLabelReadOnly(bool readOnly);
-
-template<>
-void ShowModifyWidget<QLineEdit, QString>::setData(QString data);
 
 template<>
 void ShowModifyWidget<QLabel, QPixmap>::setData(QPixmap data);

@@ -9,9 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 	tabWidget->setUsesScrollButtons(false);
 	tabWidget->addTab(basicInformation, "Basic Information");
 	tabWidget->addTab(equipmentInformation, "Equipment Information");
-	tabWidget->addTab(equipmentMainTaince, "Equipment MainTaince");
+	tabWidget->addTab(equipmentMaintaince, "Equipment Maintaince");
 	basicInformation->addTab(personInformation, "Personal Information");
 	basicInformation->addTab(departmentInformation, "Department Information");
+	equipmentInformation->addTab(equipmentPurchse, "Equipment Purchase");
+	equipmentInformation->addTab(equipmentMaintaincePlanShow, "Equipment Maintaince Plan Show");
+	equipmentInformation->addTab(todayPlan, "Today Plan");
 	layout->addWidget(tabWidget);
 	layout->setMargin(0);
 }

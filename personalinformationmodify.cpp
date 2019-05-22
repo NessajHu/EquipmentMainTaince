@@ -25,15 +25,15 @@ PersonalInformationModify::PersonalInformationModify(QWidget *parent)
 		pictureWidget->setData(QPixmap(fileName));
 	});
 	layout->addWidget(backButton, 0, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
-	layout->addWidget(nameWidget, 1, 0, 1, 1, Qt::AlignBottom);
-	layout->addWidget(sexWidget, 1, 1, 1, 1, Qt::AlignBottom);
-	layout->addWidget(pictureWidget, 1, 2, 1, 1, Qt::AlignBottom);
-	layout->addWidget(jobNumberWidget, 2, 0, 1, 1, Qt::AlignBottom);
-	layout->addWidget(idWidget, 2, 1, 1, 1, Qt::AlignBottom);
-	layout->addWidget(birthdayWidget, 2, 2, 1, 1, Qt::AlignBottom);
-	layout->addWidget(addressWidget, 3, 0, 1, 1, Qt::AlignBottom);
-	layout->addWidget(mobilePhoneWidget, 3, 1, 1, 1, Qt::AlignBottom);
-	layout->addWidget(emailWidget, 3, 2, 1, 1, Qt::AlignBottom);
-	layout->addWidget(departmentWidget, 4, 0, 1, 1, Qt::AlignBottom);
-	layout->addWidget(remarkWidget, 4, 1, 1, 1, Qt::AlignBottom);
+	layout->addWidget(nameWidget, 1, 0, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(sexWidget, 1, 1, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(pictureWidget, 1, 2, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(jobNumberWidget, 2, 0, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(idWidget, 2, 1, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(birthdayWidget, 2, 2, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(addressWidget, 3, 0, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(mobilePhoneWidget, 3, 1, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(emailWidget, 3, 2, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(departmentWidget, 4, 0, 1, 1, Qt::AlignVCenter);
+	layout->addWidget(remarkWidget, 4, 1, 1, 1, Qt::AlignVCenter);
 }
