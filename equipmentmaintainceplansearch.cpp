@@ -1,9 +1,17 @@
 #include "equipmentmaintainceplansearch.h"
+#include <QSqlRecord>
 
 EquipmentMaintaincePlanSearch::EquipmentMaintaincePlanSearch(QWidget *parent) : QWidget(parent)
 {
-	searchTable->setPlaceholderText("ID");
-	layout->addWidget(searchTable, 0, 0, 5, 5);
+
+	QStringList labels;
+	labels << "Begin Date" << "End Date" << "Maintaince Type"
+		   << "Years" << "Months" << "Days" << "Error Years"
+		   << "Error Months" << "Error Days";
+	searchWidget->setLabels(labels);
+	searchWidget->setPlaceholderText("ID");
+	searchWidget->getModel()->setTable(QString("plan"));
+	layout->addWidget(searchWidget, 0, 0, 5, 5);
 	layout->addWidget(addButton, 5, 0, 1, 1);
 	layout->addWidget(deleteButton, 5, 2, 1, 1);
 	layout->addWidget(modifyButton, 5, 4, 1, 1);
@@ -13,5 +21,5 @@ EquipmentMaintaincePlanSearch::EquipmentMaintaincePlanSearch(QWidget *parent) : 
 	layout->setColumnStretch(3, 1);
 	layout->setColumnStretch(4, 1);
 	layout->setColumnStretch(5, 0);
-	QObject::connect(searchTable, &SearchWidget::itemDoubleClicked, [this](QTableWidgetItem *item){emit itemDoubleClicked(item);});
+	QObject::connect(searchWidget, &SearchWidget::itemDoubleClicked, [this](QSqlRecord item){emit itemDoubleClicked(item);});
 }

@@ -8,8 +8,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 	qDebug() <<"here1";
-	EquipmentMaintaincePlanSearch ww;
-	ww.show();
 	MainWindow w;
 	qDebug() <<"here";
 	//Login w;

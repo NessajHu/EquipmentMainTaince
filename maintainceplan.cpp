@@ -23,4 +23,5 @@ MaintaincePlan::Type MaintaincePlan::stringToType(const QString &string)
 		if(*i == string)
 			return MaintaincePlan::Type{static_cast<int>(i - typeStrings.begin())};
 	}
+	return MaintaincePlan::Type::Repair;
 }

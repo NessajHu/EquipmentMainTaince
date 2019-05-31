@@ -72,3 +72,50 @@ void ShowModifyWidget<QComboBox, QString>::init(QStringList& initValue)
 	modifyLabel->addItems(initValue);
 }
 
+template<>
+QString ShowModifyWidget<QLineEdit, QString>::getData()
+{
+	return modifyLabel->text();
+}
+
+template<>
+QString ShowModifyWidget<QComboBox, QString>::getData()
+{
+	return modifyLabel->currentText();
+}
+
+template<>
+QString ShowModifyWidget<QLabel, QPixmap>::getData()
+{
+	if(modifyLabel->pixmap() == nullptr)
+		return QString("");
+	return data;
+}
+
+
+template<>
+void ShowModifyWidget<QComboBox, QString>::con()
+{
+	QObject::connect(confirmButton, &QPushButton::clicked, [this](){emit confirm(modifyLabel->currentText());});
+}
+
+template <>
+void ShowModifyWidget<QLabel, QPixmap>::con()
+{
+	QObject::connect(confirmButton, &QPushButton::clicked, [this](){
+		QString fileName = QFileDialog::getOpenFileName(this,
+							   tr("Open Image"),".",tr("Image File (*.jpg *.png *.bmp)"));
+		QSize picSize(200, 300);
+		qDebug() << "filename";
+		QPixmap pixmap(fileName);
+		QPixmap scaledPixmap = pixmap.scaled(picSize);
+		this->setData(scaledPixmap);
+		data = fileName;
+		qDebug() << fileName;
+	});
+}
+template<>
+void ShowModifyWidget<QDateEdit, QDate>::con()
+{
+	QObject::connect(confirmButton, &QPushButton::clicked, [this](){emit confirm(modifyLabel->date().toString());});
+}

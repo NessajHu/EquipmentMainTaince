@@ -28,7 +28,5 @@ Login::Login(QWidget *parent)
  */
 void Login::loginButtonClicked()
 {
-	QCryptographicHash hash(QCryptographicHash::Md5);
-	hash.addData(passwordLabel->text().toLatin1());
-	emit passwordGet(hash.result());
+	emit passwordGet(passwordLabel->text());
 }

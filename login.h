@@ -20,7 +20,7 @@ private:
 	QPushButton *loginButton;
 	QGridLayout *layout;
 signals:
-	void passwordGet(QByteArray);
+	void passwordGet(QString);
 public slots:
 private slots:
 	void loginButtonClicked();

@@ -2,15 +2,11 @@
 #include <QDebug>
 
 PersonalInformation::PersonalInformation(QWidget *parent)
-	: QStackedWidget(parent),
-	  searchWidget(new SearchWidget(nullptr)),
-	  personInformationModify(new PersonalInformationModify(nullptr))
+	: QStackedWidget(parent)
 {
-	qDebug() << "test";
-	addWidget(searchWidget);
+	addWidget(personInformationShow);
 	addWidget(personInformationModify);
-	setCurrentWidget(searchWidget);
-	QObject::connect(searchWidget, &SearchWidget::itemDoubleClicked, [this](){this->setCurrentWidget(personInformationModify);});
-	QObject::connect(personInformationModify, &PersonalInformationModify::backButtonClicked, [this](){this->setCurrentWidget(searchWidget);});
-	qDebug() << "eteet";
+	setCurrentWidget(personInformationShow);
+	QObject::connect(personInformationShow, &PersonalInformationShow::itemDoubleClicked, [this](QSqlRecord record){personInformationModify->setData(record); this->setCurrentWidget(personInformationModify);});
+	QObject::connect(personInformationModify, &PersonalInformationModify::backButtonClicked, [this](){this->setCurrentWidget(personInformationShow);});
 }

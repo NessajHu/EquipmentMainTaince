@@ -2,6 +2,10 @@
 
 TodayPlan::TodayPlan(QWidget *parent) : QWidget(parent)
 {
+	QStringList labels;
+	labels << "ID" << "Name" << "Who" << "Type";
+
+	searchWidget->getModel()->setTable(QString("everyday"));
 	layout->addWidget(dateLabel, 0, 1, 1, 1, Qt::AlignRight);
 	layout->addWidget(dateEdit, 0, 2, 1, 1);
 	layout->addWidget(searchWidget, 1, 0, 4, 5);

@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include "showmodifywidget.h"
 #include <QGridLayout>
+#include <QSqlRecord>
 
 class PersonalInformationModify : public QWidget
 {
@@ -17,7 +18,7 @@ public:
 	ShowModifyWidget<> *sexWidget;
 	ShowModifyWidget<QLabel, QPixmap> *pictureWidget;
 	ShowModifyWidget<> *jobNumberWidget;
-	ShowModifyWidget<> *idWidget;
+	ShowModifyWidget<> *passwordWidget;
 	ShowModifyWidget<> *birthdayWidget;
 	ShowModifyWidget<> *addressWidget;
 	ShowModifyWidget<> *mobilePhoneWidget;
@@ -25,6 +26,8 @@ public:
 	ShowModifyWidget<> *departmentWidget;
 	ShowModifyWidget<> *remarkWidget;
 	QGridLayout *layout;
+	bool check();
+	void setData(QSqlRecord);
 signals:
 	void backButtonClicked();
 };

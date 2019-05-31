@@ -13,7 +13,6 @@ class DepartmentInformationModify : public QWidget
 public:
 	explicit DepartmentInformationModify(QWidget *parent = nullptr);
 	void setData(QTreeWidgetItem *item);
-private:
 	QPushButton *backButton = new QPushButton(this);
 	ShowModifyWidget<> *numberWidget = new ShowModifyWidget(this, QString("Number"), false);
 	ShowModifyWidget<> *nameWidget = new ShowModifyWidget(this, QString("Name"), true);

@@ -4,9 +4,7 @@
 #include <QDebug>
 
 DepartmentShow::DepartmentShow(QWidget *parent)
-	: QWidget(parent),
-	  departmentListInformation(new QTreeWidget(this)),
-	  layout(new QGridLayout(this))
+	: QWidget(parent)
 {
 	qDebug() << "eeeee";
 	layout->addWidget(departmentListInformation);
@@ -24,4 +22,9 @@ DepartmentShow::DepartmentShow(QWidget *parent)
 	tests->setText(1, "child1 2");
 	tests->setText(2, "56");
 	tests->setText(3, "testcallindddg");
+	layout->addWidget(departmentListInformation, 0, 0, 5, 5);
+	layout->addWidget(addButton, 5, 1, 1, 1);
+	layout->addWidget(deleteButton, 5, 2, 1, 1);
+	QObject::connect(addButton, &QPushButton::clicked, [this](){this->addWidget->show();});
+	QObject::connect(addWidget, &AddEquipmentInformation::backButtonClicked, [this](){this->addWidget->hide();});
 }

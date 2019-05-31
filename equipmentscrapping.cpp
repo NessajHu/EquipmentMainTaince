@@ -2,5 +2,4 @@
 
 EquipmentScrapping::EquipmentScrapping(QWidget *parent) : QWidget(parent)
 {
-
 }

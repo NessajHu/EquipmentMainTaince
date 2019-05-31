@@ -4,7 +4,10 @@
 #include <QWidget>
 #include <QTableWidget>
 #include "tabwidget.h"
+#include "searchwidget.h"
 #include <QGridLayout>
+#include <QPushButton>
+#include "equipmentinformationmodify.h"
 
 class EquipmentScrapping : public QWidget
 {
@@ -12,7 +15,9 @@ class EquipmentScrapping : public QWidget
 public:
 	explicit EquipmentScrapping(QWidget *parent = nullptr);
 private:
-	TabWidget<QTabWidget::West> *tabWidget = new TabWidget<QTabWidget::West>(this);
+	SearchWidget *searchWidget = new SearchWidget(this);
+	EquipmentInformationModify *modify = new EquipmentInformationModify(this);
+	QPushButton *deleteButton = new QPushButton(QString("Delete"), this);
 	QGridLayout *layout = new QGridLayout(this);
 	QTableWidget *table = new QTableWidget(this);
 };

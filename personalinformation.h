@@ -2,8 +2,8 @@
 #define PERSONALINFORMATION_H
 
 #include <QStackedWidget>
-#include "searchwidget.h"
 #include "personalinformationmodify.h"
+#include "personalinformationshow.h"
 
 class PersonalInformation : public QStackedWidget
 {
@@ -11,8 +11,8 @@ class PersonalInformation : public QStackedWidget
 public:
 	explicit PersonalInformation(QWidget *parent = nullptr);
 private:
-	SearchWidget *searchWidget;
-	PersonalInformationModify *personInformationModify;
+	PersonalInformationModify *personInformationModify = new PersonalInformationModify(this);
+	PersonalInformationShow *personInformationShow = new PersonalInformationShow(this);
 signals:
 
 public slots:

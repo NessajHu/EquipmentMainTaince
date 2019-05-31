@@ -11,7 +11,7 @@ public:
 	EquipmentMaintaincePlanShow(QWidget *parent);
 private:
 	void setSearchWidget(bool save);
-	void setModifyWidget(QTableWidgetItem *item);
+	void setModifyWidget(QSqlRecord item);
 	EquipmentMaintaincePlanSearch *searchWidget = new EquipmentMaintaincePlanSearch(nullptr);
 	EquipmentMaintaincePlanModify *modifyWidget = new EquipmentMaintaincePlanModify(nullptr);
 };

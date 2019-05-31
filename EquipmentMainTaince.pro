@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -46,7 +46,17 @@ SOURCES += \
     equipmentmaintainceplantable.cpp \
     equipmentmaintainceplansearch.cpp \
     todayplan.cpp \
-    equipmentinformation.cpp
+    equipmentinformation.cpp \
+    equipmentinformationmodify.cpp \
+    equipmentinformationshow.cpp \
+    personalinformationshow.cpp \
+    tcpserver.cpp \
+    addpersoninformation.cpp \
+    addequipmentinformation.cpp \
+    equipmentinformationwidget.cpp \
+    adddepartmentinformation.cpp \
+    person.cpp \
+    addequipmentmaintainceplan.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -69,7 +79,17 @@ HEADERS += \
     equipmentmaintainceplantable.h \
     equipmentmaintainceplansearch.h \
     todayplan.h \
-    equipmentinformation.h
+    equipmentinformation.h \
+    equipmentinformationmodify.h \
+    equipmentinformationshow.h \
+    personalinformationshow.h \
+    tcpserver.h \
+    addpersoninformation.h \
+    addequipmentinformation.h \
+    equipmentinformationwidget.h \
+    adddepartmentinformation.h \
+    person.h \
+    addequipmentmaintainceplan.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
