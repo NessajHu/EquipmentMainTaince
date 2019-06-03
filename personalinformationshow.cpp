@@ -2,6 +2,7 @@
 #include <QSqlRecord>
 #include <QDebug>
 #include <QSqlError>
+#include <QModelIndex>
 
 PersonalInformationShow::PersonalInformationShow(QWidget *parent) : QWidget(parent)
 {
@@ -34,6 +35,12 @@ PersonalInformationShow::PersonalInformationShow(QWidget *parent) : QWidget(pare
 	});
 }
 
+
 PersonalInformationShow::~PersonalInformationShow()
 {
+}
+
+void PersonalInformationShow::getData(QString text, int index)
+{
+	searchWidget->getModel()->setData(searchWidget->getModel()->index(searchWidget->getView()->currentIndex().row(), index), text);
 }

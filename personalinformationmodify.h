@@ -7,6 +7,7 @@
 #include "showmodifywidget.h"
 #include <QGridLayout>
 #include <QSqlRecord>
+#include <QSqlTableModel>
 
 class PersonalInformationModify : public QWidget
 {
@@ -30,6 +31,7 @@ public:
 	void setData(QSqlRecord);
 signals:
 	void backButtonClicked();
+	void confirm(QString, int);
 };
 
 #endif // PERSONALINFORMATIONMODIFY_H

@@ -38,6 +38,7 @@ public:
 	void setLabelReadOnly([[maybe_unused]]bool readOnly);
 	//template<typename = std::enable_if_t<std::is_same_v<DataType, QPixmap>>>QString getFileString();
 	void con();
+	void clear();
 	QString data;
 private:
 	QLabel *showLabel;
@@ -72,6 +73,13 @@ ShowModifyWidget<LabelType, DataType>::ShowModifyWidget(QWidget *parent, const Q
 	con();
 }
 
+template <typename LabelType, typename DataType>
+void ShowModifyWidget<LabelType, DataType>::clear()
+{
+	modifyLabel->clear();
+}
+template <>
+void ShowModifyWidget<QComboBox, QString>::clear();
 
 template<typename LabelType, typename DataType>
 void ShowModifyWidget<LabelType, DataType>::con()

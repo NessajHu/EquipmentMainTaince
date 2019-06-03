@@ -9,4 +9,5 @@ PersonalInformation::PersonalInformation(QWidget *parent)
 	setCurrentWidget(personInformationShow);
 	QObject::connect(personInformationShow, &PersonalInformationShow::itemDoubleClicked, [this](QSqlRecord record){personInformationModify->setData(record); this->setCurrentWidget(personInformationModify);});
 	QObject::connect(personInformationModify, &PersonalInformationModify::backButtonClicked, [this](){this->setCurrentWidget(personInformationShow);});
+	QObject::connect(personInformationModify, &PersonalInformationModify::confirm, personInformationShow, &PersonalInformationShow::getData);
 }

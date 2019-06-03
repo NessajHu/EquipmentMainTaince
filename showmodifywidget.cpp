@@ -111,6 +111,7 @@ void ShowModifyWidget<QLabel, QPixmap>::con()
 		QPixmap scaledPixmap = pixmap.scaled(picSize);
 		this->setData(scaledPixmap);
 		data = fileName;
+		emit confirm(data);
 		qDebug() << fileName;
 	});
 }
@@ -118,4 +119,10 @@ template<>
 void ShowModifyWidget<QDateEdit, QDate>::con()
 {
 	QObject::connect(confirmButton, &QPushButton::clicked, [this](){emit confirm(modifyLabel->date().toString());});
+}
+
+template<>
+void ShowModifyWidget<QComboBox, QString>::clear()
+{
+
 }

@@ -28,7 +28,16 @@ SearchWidget::SearchWidget(QWidget *parent)
 	QObject::connect(table, &QTableView::doubleClicked, [this](){
 		emit itemDoubleClicked(model->record(table->currentIndex().row()));
 	});
+	QObject::connect(searchButton, &QPushButton::clicked, this, [this](){
+		model->setFilter(QString("person_job_id = '%1'").arg(searchBar->text()));
+		model->select();
+	});
+	QObject::connect(refreshButton, &QPushButton::clicked, [this](){
+		model->setFilter(QString(""));
+		model->select();
+	});
 }
+
 
 void SearchWidget::setLabels(QStringList labels)
 {

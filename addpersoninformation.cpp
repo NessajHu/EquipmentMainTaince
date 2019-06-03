@@ -36,6 +36,17 @@ AddPersonInformation::AddPersonInformation(QWidget *parent) : QWidget(parent)
 		model->setData(model->index(0, 9), 0);
 		model->setData(model->index(0, 10), modify->birthdayWidget->getData());
 		model->setData(model->index(0, 11), modify->addressWidget->getData());
+		modify->jobNumberWidget->clear();
+		modify->departmentWidget->clear();
+		modify->remarkWidget->clear();
+		modify->nameWidget->clear();
+		modify->pictureWidget->clear();
+		modify->mobilePhoneWidget->clear();
+		modify->emailWidget->clear();
+		modify->sexWidget->clear();
+		modify->passwordWidget->clear();
+		modify->birthdayWidget->clear();
+		modify->addressWidget->clear();
 		qDebug() << model->submitAll();
 		qDebug() << model->lastError() << modify->pictureWidget->getData();
 		qDebug() << model->select();

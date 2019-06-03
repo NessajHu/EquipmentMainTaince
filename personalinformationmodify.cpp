@@ -36,6 +36,17 @@ PersonalInformationModify::PersonalInformationModify(QWidget *parent)
 	layout->addWidget(emailWidget, 3, 2, 1, 1, Qt::AlignVCenter);
 	layout->addWidget(departmentWidget, 4, 0, 1, 1, Qt::AlignVCenter);
 	layout->addWidget(remarkWidget, 4, 1, 1, 1, Qt::AlignVCenter);
+	QObject::connect(nameWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 3);});
+	QObject::connect(sexWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 7);});
+	QObject::connect(pictureWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 4);});
+	QObject::connect(jobNumberWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 0);});
+	QObject::connect(passwordWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 8);});
+	QObject::connect(birthdayWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 10);});
+	QObject::connect(addressWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 11);});
+	QObject::connect(mobilePhoneWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 5);});
+	QObject::connect(emailWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 6);});
+	QObject::connect(departmentWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 1);});
+	QObject::connect(remarkWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 2);});
 }
 
 bool PersonalInformationModify::check()

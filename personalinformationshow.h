@@ -23,6 +23,7 @@ public:
 signals:
 	void itemDoubleClicked(QSqlRecord item);
 public slots:
+	void getData(QString text, int index);
 };
 
 #endif // PERSONALINFORMATIONSHOW_H
