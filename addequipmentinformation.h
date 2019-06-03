@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "equipmentinformationmodify.h"
+#include <QSqlTableModel>
+#include <QSqlRecord>
 
 class AddEquipmentInformation : public QWidget
 {
@@ -12,9 +14,10 @@ public:
 	EquipmentInformationModify *modify = new EquipmentInformationModify(this);
 	QPushButton *addButton = new QPushButton(this);
 	QGridLayout *layout = new QGridLayout(this);
+	QSqlTableModel *model;
 signals:
 	void backButtonClicked();
-
+	void newRecord(QSqlRecord);
 public slots:
 };
 

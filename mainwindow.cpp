@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
 	departmentInformation = new DepartmentInformation(basicInformation);
 	equipmentPurchse = new EquipmentPurchase(this);
 	equipmentMaintaincePlanShow = new EquipmentMaintaincePlanShow(this);
+	equipmentScrapping = new EquipmentScrapping(this);
 	equipmentInformationShow = new EquipmentInformationShow(this);
 	todayPlan = new TodayPlan(this);
 	layout = new QGridLayout(this);
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
 	basicInformation->addTab(departmentInformation, "Department Information");
 	equipmentInformation->addTab(equipmentPurchse, "Equipment Purchase");
 	equipmentInformation->addTab(equipmentInformationShow, "Equipment Information");
+	equipmentInformation->addTab(equipmentScrapping, "Equipment Scrapping");
 	equipmentMaintaince->addTab(equipmentMaintaincePlanShow, "Equipment Maintaince Plan Show");
 	equipmentMaintaince->addTab(todayPlan, "Today Plan");
 	layout->addWidget(tabWidget);

@@ -5,6 +5,7 @@
 #include <searchwidget.h>
 #include "equipmentinformationmodify.h"
 #include "equipmentinformationwidget.h"
+#include "addequipmentinformation.h"
 
 class EquipmentInformationShow : public QStackedWidget
 {
@@ -13,6 +14,7 @@ public:
 	explicit EquipmentInformationShow(QWidget *parent = nullptr);
 	EquipmentInformationWidget *searchWidget = new EquipmentInformationWidget(this);
 	EquipmentInformationModify *equipmentInformationModify = new EquipmentInformationModify(this);
+	AddEquipmentInformation *addEquipmentInformation = new AddEquipmentInformation(this);
 signals:
 
 public slots:

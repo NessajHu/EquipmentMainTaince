@@ -23,6 +23,8 @@ class EquipmentInformation
 	};
 
 public:
+	static int stringToType(QString str);
+	static int stringToState(QString str);
 	EquipmentInformation();
 	QString getName() const;
 	void setName(const QString &value);

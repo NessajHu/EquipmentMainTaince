@@ -30,6 +30,7 @@ public:
 signals:
 	void submitButtonClicked();
 	void backButtonClicked();
+	void confirm(QString, int);
 public slots:
 };
 

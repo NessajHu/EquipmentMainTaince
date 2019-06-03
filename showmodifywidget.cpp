@@ -126,3 +126,9 @@ void ShowModifyWidget<QComboBox, QString>::clear()
 {
 
 }
+
+template<>
+QString ShowModifyWidget<QDateEdit, QDate>::getData()
+{
+	return modifyLabel->date().toString();
+}

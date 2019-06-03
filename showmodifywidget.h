@@ -162,6 +162,9 @@ QString ShowModifyWidget<QComboBox, QString>::getData();
 
 template<>
 QString ShowModifyWidget<QLabel, QPixmap>::getData();
+
+template<>
+QString ShowModifyWidget<QDateEdit, QDate>::getData();
 /*
 template<typename LabelType, typename DataType>
 void ShowModifyWidget<LabelType, DataType>::setData(DataType data)

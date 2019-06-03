@@ -1,4 +1,4 @@
-#include "maintainceplan.h"
+ #include "maintainceplan.h"
 
 const QVector<QString> MaintaincePlan::typeStrings{"Routine", "Designated", "Repair"};
 

@@ -13,6 +13,7 @@
 #include "equipmentinformationshow.h"
 #include "todayplan.h"
 #include "tcpserver.h"
+#include "equipmentscrapping.h"
 
 class MainWindow : public QWidget
 {
@@ -34,6 +35,7 @@ private:
 	EquipmentPurchase *equipmentPurchse;
 	EquipmentMaintaincePlanShow *equipmentMaintaincePlanShow;
 	EquipmentInformationShow *equipmentInformationShow;
+	EquipmentScrapping *equipmentScrapping;
 	TodayPlan *todayPlan;
 	QGridLayout *layout;
 	TcpServer *server;

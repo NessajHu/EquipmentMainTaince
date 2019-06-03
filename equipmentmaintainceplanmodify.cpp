@@ -15,4 +15,13 @@ EquipmentMaintaincePlanModify::EquipmentMaintaincePlanModify(QWidget *parent) : 
 	layout->addWidget(submitButton, 4, 2, 1, 1);
 	QObject::connect(submitButton, &QPushButton::clicked, [this](){emit submitButtonClicked();});
 	QObject::connect(backButton, &QPushButton::clicked, [this](){emit backButtonClicked();});
+	QObject::connect(beginDateWidget, &ShowModifyWidget<QDateEdit, QDate>::confirm, [this](QString text){emit this->confirm(text, 3);});
+	QObject::connect(endDateWidget, &ShowModifyWidget<QDateEdit, QDate>::confirm, [this](QString text){emit this->confirm(text, 7);});
+	QObject::connect(maintainceYypeWidget, &ShowModifyWidget<QComboBox, QString>::confirm, [this](QString text){emit this->confirm(text, 4);});
+	QObject::connect(yearsWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 0);});
+	QObject::connect(monthsWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 8);});
+	QObject::connect(daysWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 10);});
+	QObject::connect(errorYearsWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 11);});
+	QObject::connect(errorMonthsWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 5);});
+	QObject::connect(errorDaysWidget, &ShowModifyWidget<QLineEdit, QString>::confirm, [this](QString text){emit this->confirm(text, 6);});
 }

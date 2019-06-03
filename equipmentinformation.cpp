@@ -1,5 +1,31 @@
 #include "equipmentinformation.h"
 
+int EquipmentInformation::stringToType(QString str)
+{
+	if(str == "A")
+		return 0;
+	if(str == "B")
+		return 1;
+	if(str == "C")
+		return 3;
+	if(str == "D")
+		return 4;
+	return -1;
+}
+
+int EquipmentInformation::stringToState(QString str)
+{
+	if(str == "Using")
+		return 0;
+	if(str == "Shutdown")
+		return 1;
+	if(str == "WaitingForRepaired")
+		return 2;
+	if(str == "DisCard")
+		return 3;
+	return -1;
+}
+
 EquipmentInformation::EquipmentInformation()
 {
 

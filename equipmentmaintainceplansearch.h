@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "searchwidget.h"
 #include <QGridLayout>
+#include "addequipmentinformation.h"
 
 class EquipmentMaintaincePlanSearch : public QWidget
 {
@@ -15,6 +16,7 @@ public:
 	QPushButton *deleteButton = new QPushButton(QString("Delete"), this);
 	QPushButton *modifyButton = new QPushButton(QString("Modify"), this);
 	QGridLayout *layout = new QGridLayout(this);
+	AddEquipmentInformation *addEquipmentInformation = new AddEquipmentInformation(this);
 signals:
 	void itemDoubleClicked(QSqlRecord item);
 public slots:
